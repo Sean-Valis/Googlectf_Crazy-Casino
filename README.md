@@ -2,7 +2,7 @@ Write up:
 
 I saw crazy casino and wanted to attempt reverse engineering it.
 
-Looking at assembly/disassembly in Ghidra:
+**Looking at assembly/disassembly in Ghidra:**
 
 I started by downloading the chal file and popping it into ghidra. Noticed a few functions that caught my eye:
 1) vip_lounge (THE END GAME)
@@ -19,7 +19,7 @@ This is dangerous because read will write as many as 200 bytes, but if signature
 AKA a classic buffer overflow.
 
 
-GDB STUFF:
+**GDB STUFF:**
 
 So I started the attack by using GDB and trying to identify the number of bytes it takes to crash the program.
 
@@ -30,7 +30,7 @@ I found that at the 76 character point for input was when I started getting sigs
 
 
 
-Looking at assembly/disassembly in Ghidra:
+**Looking at assembly/disassembly in Ghidra:**
 
 At around this time I started looking at the end game. I won't know what my payload is if I don't look at my goal.
 
@@ -45,7 +45,7 @@ So that's my goal. 1,000,000 coins or bust.
 
 
 
-Fuzzing:
+**Fuzzing:**
 
 The final step was the longest Creating the payload:
 
@@ -62,7 +62,7 @@ This is when I knew where the destination memory location should go.
 1 problem was how the coins were stored in vip_lounge. Which is the "EBP" Register
 
 
-The python creation part:
+**The python creation part:**
 
 This is where I went off course a bit. I tried doing a ROP Chain to change the EBP register before returning to vip_lounge.
 
