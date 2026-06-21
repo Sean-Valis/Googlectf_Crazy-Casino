@@ -2,7 +2,7 @@ Write up:
 
 I saw crazy casino and wanted to attempt reverse engineering it.
 
-##Looking at assembly/disassembly in Ghidra:
+## **Looking at assembly/disassembly in Ghidra:**
 
 I started by downloading the chal file and popping it into ghidra. Noticed a few functions that caught my eye:
 1) vip_lounge (THE END GAME)
